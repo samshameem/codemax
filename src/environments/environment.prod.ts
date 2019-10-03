@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
     hmr       : false,
-    apiUrl: 'http://localhost/codemax/api'
+    apiUrl: 'http://codemax.techgiantsolutions.com/api'
 };

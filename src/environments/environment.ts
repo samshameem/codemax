@@ -5,7 +5,7 @@
 export const environment = {
     production: false,
     hmr       : false,
-    apiUrl: 'http://localhost/codemax/api'
+    apiUrl: 'http://codemax.techgiantsolutions.com/api'
 };
 
 /*
