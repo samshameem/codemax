@@ -1,0 +1,98 @@
+<div id="model-form" class="page-layout carded fullwidth inner-scroll">
+    <div class="center">
+        <div class="header accent" fxLayout="row" fxLayoutAlign="space-around center">
+
+            <!-- APP TITLE -->
+            <div fxLayout="row" fxLayoutAlign="center center">
+
+                <button mat-icon-button [routerLink]="'/models'">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+
+                <div class="model-image">
+                    <mat-icon>business</mat-icon>
+                </div>
+
+                <div fxLayout="column" fxLayoutAlign="start start">
+                    <div class="h2" *ngIf="pageType ==='edit'">
+                        {{model.name}}
+                    </div>
+                    <div class="h2" *ngIf="pageType ==='new'">
+                        New Model
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- / APP TITLE -->
+
+            <button mat-raised-button class="save-model-button" [disabled]="modelForm.invalid"
+                    *ngIf="pageType ==='new'" (click)="addModel()">
+                <span>ADD</span>
+            </button>
+
+            <button mat-raised-button class="save-model-button" [disabled]="modelForm.invalid || modelForm.pristine"
+                    *ngIf="pageType ==='edit'" (click)="saveModel()">
+                <span>SAVE</span>
+            </button>
+        </div>
+        <div class="content" fxLayout="column" fxLayoutAlign="center center">
+            <div class="subtitle secondary-text">
+                <span>Model Detail</span>
+            </div>
+            <form name="modelForm" [formGroup]="modelForm" class="model" fxLayout="column">
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <mat-form-field *ngIf="manufacturers" fxFlex="40">
+                        <mat-label>Manufacturer Name</mat-label>
+                        <mat-select name="manufacturer_id" [(value)]="manufacturer_id" formControlName="manufacturer_id" required>
+                            <mat-option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.id">
+                                {{manufacturer.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" floatLabel="always" fxFlex="40">
+                        <mat-label>Model Name</mat-label>
+                        <input matInput placeholder="Model Name" name="model_name" formControlName="model_name" required>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex>
+                    <mat-form-field appearance="outline" floatLabel="always" fxFlex="40">
+                        <mat-label>Color</mat-label>
+                        <input matInput placeholder="color" name="color" formControlName="color" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" floatLabel="always" fxFlex="40">
+                        <mat-label>Year</mat-label>
+                        <input matInput type="number" placeholder="Year" name="year" minlength="4" maxlength="4" formControlName="year" required>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex>
+                    <mat-form-field appearance="outline" floatLabel="always" fxFlex="40">
+                        <mat-label>Reg Number</mat-label>
+                        <input matInput placeholder="Reg Number" name="reg_number" formControlName="reg_number" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" floatLabel="always" fxFlex="40">
+                        <mat-label>Note</mat-label>
+                        <input matInput placeholder="Note" name="note" formControlName="note" required>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex>
+                    <div class="button-row">
+                        <label for="pic_1"></label>
+                        <input hidden type="file" [(value)]="pic_1" name="pic_1" formControlName="pic_1" #imgFileInput (change)="onFileChange($event, 'pic_1')"/>
+                        <button mat-raised-button color="accent" (click)="imgFileInput.click()">
+                            Pic 1 <mat-icon>attachment</mat-icon>
+                        </button>
+                    </div>
+                    <div class="button-row">
+                        <label for="pic_2"></label>
+                        <input hidden type="file" [(value)]="pic_2" name="pic_2" formControlName="pic_2" #imgFileInput2 (change)="onFileChange($event, 'pic_2')"/>
+                        <button mat-raised-button color="accent" (click)="imgFileInput2.click()">
+                            Pic 2 <mat-icon>attachment</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

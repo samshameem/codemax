@@ -1,0 +1,27 @@
+<mat-table #table [dataSource]="dataSource" matSort>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Manufacturers Name</mat-header-cell>
+        <mat-cell *matCellDef="let inventory"> {{inventory.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="model_name">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md mat-sort-header>Model Name</mat-header-cell>
+        <mat-cell *matCellDef="let inventory" fxHide fxShow.gt-md> {{inventory.model_name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="list">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md mat-sort-header>count</mat-header-cell>
+        <mat-cell *matCellDef="let inventory" fxHide fxShow.gt-md> {{inventory.list}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
+
+    <mat-row *matRowDef="let inventory; columns: displayedColumns;" class="inventory" matRipple (click)="viewInventory(inventory)">
+    </mat-row>
+</mat-table>
+
+<mat-paginator #paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions" showFirstLastButtons>
+</mat-paginator>

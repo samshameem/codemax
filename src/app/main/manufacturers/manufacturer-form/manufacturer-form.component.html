@@ -1,0 +1,60 @@
+<div id="manufacturer-form" class="page-layout carded fullwidth inner-scroll">
+    <div class="center">
+        <div class="header accent" fxLayout="row" fxLayoutAlign="space-around center">
+
+            <!-- APP TITLE -->
+            <div fxLayout="row" fxLayoutAlign="center center">
+
+                <button mat-icon-button [routerLink]="'/manufacturers'">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+
+                <div class="manufacturer-image">
+                    <mat-icon>business</mat-icon>
+                </div>
+
+                <div fxLayout="column" fxLayoutAlign="start start">
+                    <div class="h2" *ngIf="pageType ==='edit'">
+                        {{manufacturer.name}}
+                    </div>
+                    <div class="h2" *ngIf="pageType ==='new'">
+                        New Manufacturer
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- / APP TITLE -->
+
+            <button mat-raised-button class="save-manufacturer-button" [disabled]="manufacturerForm.invalid"
+                    *ngIf="pageType ==='new'" (click)="addManufacturer()">
+                <span>ADD</span>
+            </button>
+
+            <button mat-raised-button class="save-manufacturer-button" [disabled]="manufacturerForm.invalid || manufacturerForm.pristine"
+                    *ngIf="pageType ==='edit'" (click)="saveManufacturer()">
+                <span>SAVE</span>
+            </button>
+        </div>
+        <div class="content" fxLayout="column" fxLayoutAlign="center center">
+            <div class="subtitle secondary-text">
+                <span>Manufacturer Detail</span>
+            </div>
+            <form name="manufacturerForm" [formGroup]="manufacturerForm" class="manufacturer">
+
+                <div fxlayout="row" fxlayoutalign="space-between center">
+
+                    <div label="Basic Info">
+
+                        <mat-form-field appearance="outline" floatLabel="always">
+                            <mat-label>Manufacturer Name</mat-label>
+                            <input matInput placeholder="Manufacturer Name" name="name" formControlName="name" required>
+                        </mat-form-field>
+
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

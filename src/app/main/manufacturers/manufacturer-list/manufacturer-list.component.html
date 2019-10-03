@@ -1,0 +1,60 @@
+<mat-table #table [dataSource]="dataSource" matSort>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Manufacturer Name</mat-header-cell>
+        <mat-cell *matCellDef="let manufacturer"> {{manufacturer.name}}</mat-cell>
+    </ng-container>
+
+    <!-- Manufacturer code Column -->
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md mat-sort-header>Manufacturer Code</mat-header-cell>
+        <mat-cell *matCellDef="let manufacturer" fxHide fxShow.gt-md> {{manufacturer.id}}</mat-cell>
+    </ng-container>
+
+    <!-- Detail Button Column -->
+    <ng-container matColumnDef="buttons">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let manufacturer">
+            <div fxFlex="row" fxLayoutAlign="end center">
+    
+                <button mat-icon-button [matMenuTriggerFor]="moreMenu" aria-label="More"
+                    (click)="$event.stopPropagation();">
+                    <mat-icon class="secondary-text">more_vert</mat-icon>
+                </button>
+    
+                <mat-menu #moreMenu="matMenu">
+                    <button *ngIf="manufacturer" mat-menu-item [routerLink]="'/manufacturer/'+manufacturer.id+'/'">
+                        <mat-icon>edit</mat-icon>
+                        <span>Edit</span>
+                    </button>
+                    <button mat-menu-item aria-label="remove" (click)="deleteManufacturer(manufacturer)">
+                        <mat-icon>delete</mat-icon>
+                        <span>Remove</span>
+                    </button>
+                </mat-menu>
+            </div>
+    
+        </mat-cell>
+    </ng-container>
+    <!-- <ng-container matColumnDef="detail-button">
+        <mat-header-cell *matHeaderCellDef fxFlex="48px" fxHide.gt-md></mat-header-cell>
+        <mat-cell *matCellDef="let manufacturer" fxFlex="48px" fxHide.gt-md>
+            <button mat-icon-button class="sidebar-toggle" fxHide.gt-md
+                    (click)="toggleSidebar('manufacturers-details-sidebar')">
+                <mat-icon class="secondary-text">info</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container> -->
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
+
+    <!-- <mat-row *matRowDef="let manufacturer; columns: displayedColumns;" class="manufacturer" matRipple
+        [routerLink]="'/manufacturer/'+manufacturer.id+'/'+manufacturer.handle">
+    </mat-row> -->
+    <mat-row *matRowDef="let manufacturer; columns: displayedColumns;" class="manufacturer" matRipple></mat-row>
+</mat-table>
+
+<mat-paginator #paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions" showFirstLastButtons>
+</mat-paginator>

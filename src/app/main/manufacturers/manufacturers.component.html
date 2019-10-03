@@ -1,0 +1,22 @@
+<div id="manufacturers" class="page-layout carded fullwidth">
+
+    <div class="top-bg accent"></div>
+
+    <div class="center">
+
+        <div class="header accent" fxLayout="row" fxLayoutAlign="space-between center">
+
+            <button mat-raised-button class="add-manufacturer-button"
+            id="add-manufacturer-button" aria-label="add manufacturer" [routerLink]="'/manufacturer/new'">
+                <span>Add New Manufacturer</span>
+            </button>
+
+        </div>
+
+        <div class="content-card">
+            <manufacturer-list></manufacturer-list>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,60 @@
+<div class="dialog-content-wrapper">
+    <div mat-dialog-content>
+        <mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Manufacture Name</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="model_name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Model Name</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.model_name}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="color">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Color</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.color}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="year">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Year</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.year}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="reg_number">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Reg Number</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.reg_number}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="note">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Note</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.note}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="pic_1">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Pic</mat-header-cell>
+                <mat-cell *matCellDef="let row"> 
+                    <a href="{{row.pic_1}}" target="_blank">Link 1</a>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="pic_2">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Pic</mat-header-cell>
+                <mat-cell *matCellDef="let row"> 
+                    <a href="{{row.pic_2}}" target="_blank">Link 2</a>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="buttons">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button *ngIf="row.sold" mat-raised-button (click)="sold(row)">sold</button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;">
+            </mat-row>
+        </mat-table>
+    </div>
+</div>

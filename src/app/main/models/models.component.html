@@ -1,0 +1,22 @@
+<div id="models" class="page-layout carded fullwidth">
+
+    <div class="top-bg accent"></div>
+
+    <div class="center">
+
+        <div class="header accent" fxLayout="row" fxLayoutAlign="space-between center">
+
+            <button mat-raised-button class="add-model-button"
+            id="add-model-button" aria-label="add model" [routerLink]="'/model/new'">
+                <span>Add New Model</span>
+            </button>
+
+        </div>
+
+        <div class="content-card">
+            <model-list></model-list>
+        </div>
+
+    </div>
+
+</div>
