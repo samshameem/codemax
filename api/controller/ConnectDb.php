@@ -1,7 +1,7 @@
 <?php
-namespace api;
+namespace API;
 
-use api\Exceptions\apiSDKException;
+use API\Exceptions\apiSDKException;
 use PDO;
 
 class ConnectDb extends PDO
@@ -9,9 +9,9 @@ class ConnectDb extends PDO
 	protected static $instance = null;
 	protected $conn;
 	protected $host = 'localhost';
-	protected $user = 'root';
-	protected $pass = '';
-	protected $name = 'codemax';
+	protected $user = 'codemax';
+	protected $pass = 'codemax';
+	protected $name = 'tg_codemax';
 	protected $connection;
 
 	// The db connection is established in the private constructor.

@@ -1,9 +1,9 @@
 <?php
-namespace api;
+namespace API;
 
-use api\ConnectDb;
-use api\API;
-use api\Exceptions\apiSDKException;
+use API\ConnectDb;
+use API\API;
+use API\Exceptions\apiSDKException;
 // use PDO;
 
 class Manufacturer extends API

@@ -5,7 +5,7 @@ if (version_compare(PHP_VERSION, '5.4.0', '<')) {
 
 spl_autoload_register(function ($class) {
     // project-specific namespace prefix
-    $prefix = 'api\\';
+    $prefix = 'API\\';
 
     // For backwards compatibility
     $customBaseDir = '';

@@ -1,5 +1,5 @@
 <?php
-namespace api;
+namespace API;
 
 abstract class API
 {

@@ -1,9 +1,9 @@
 <?php
-namespace api;
+namespace API;
 
-use api\ConnectDb;
-use api\API;
-use api\Exceptions\apiSDKException;
+use API\ConnectDb;
+use API\API;
+use API\Exceptions\apiSDKException;
 // use PDO;
 
 class Model extends API
@@ -74,9 +74,9 @@ class Model extends API
 		echo $this->processAPI($items);
 	}
 
-	public function getInven($model=false) {
+	public function getInven($model = '') {
 
-		$sql = 'SELECT model.*, manufacturer.name FROM model JOIN manufacturer ON `model`.`manufacturer_id` = `manufacturer`.`id` WHERE model.sold = 0 AND model_name = :id';
+		$sql = 'SELECT model.*, manufacturer.name FROM model JOIN manufacturer ON `model`.`manufacturer_id` = `manufacturer`.`id` WHERE model.sold = 0 AND model_name LIKE :id';
 		$array = array(':id' => $model);
 
 		$stmt = $this->db->selectAll($sql, $array);

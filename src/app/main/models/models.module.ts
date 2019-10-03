@@ -18,6 +18,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; import { ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort'; 
+import { MatProgressSpinnerModule } from '@angular/material'; 
 import { ConfirmDialogModule } from 'app/partial/confirm-dialog/confirm-dialog.module'; 
 
 import { ModelsService } from 'app/main/models/models.service';
@@ -73,6 +74,7 @@ const routes: Routes = [
 
         MatPaginatorModule,
         MatSortModule,
+        MatProgressSpinnerModule,
 
     ],
     providers   : [
