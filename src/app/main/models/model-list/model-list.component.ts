@@ -22,7 +22,7 @@ export class ModelsModelListComponent implements OnInit, OnDestroy {
     user: any;
     // dataSource: ModelsDataSource | null;
     dataSource: MatTableDataSource<ModelsDataSource>;
-    displayedColumns = ['model_name', 'color', 'buttons'];
+    displayedColumns = ['model_name', 'color', 'reg_number', 'buttons'];
     selected: any;
     selectedModels: any[];
 

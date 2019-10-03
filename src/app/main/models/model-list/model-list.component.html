@@ -16,6 +16,11 @@
         <mat-cell *matCellDef="let model" fxHide fxShow.gt-md> {{model.color}}</mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="reg_number">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md mat-sort-header>Model Reg Number</mat-header-cell>
+        <mat-cell *matCellDef="let model" fxHide fxShow.gt-md> {{model.reg_number}}</mat-cell>
+    </ng-container>
+
     <ng-container matColumnDef="buttons">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let model">

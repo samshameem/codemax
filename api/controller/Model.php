@@ -191,7 +191,7 @@ class Model extends API
 			$pic_extension = pathinfo($image["name"], PATHINFO_EXTENSION);
 			$tempFile = $image["tmp_name"];
 			$fileName = basename($image["name"], ".".$pic_extension);
-			$picDir = "../src/assets/uploads/";
+			$picDir = dirname(__FILE__) ."/../../assets/uploads/";
 			$fileTime =date("Ymdhis");
 			$pic_name = $fileName.'-'.$fileTime.".".$pic_extension;
 			if(move_uploaded_file($tempFile, $picDir . basename($pic_name))){
