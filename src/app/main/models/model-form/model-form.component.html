@@ -27,10 +27,8 @@
 
             <button mat-raised-button class="save-model-button" [disabled]="modelForm.invalid"
                     *ngIf="pageType ==='new'" (click)="addModel()">
-                <span>ADD <mat-icon>
-                    <mat-spinner color="accent" diameter="20">
-                    </mat-spinner>
-                </mat-icon></span>
+                <span>ADD <mat-icon *ngIf="loading"><mat-spinner color="accent" diameter="20">
+                    </mat-spinner></mat-icon></span>
             </button>
 
             <button mat-raised-button class="save-model-button" [disabled]="modelForm.invalid || modelForm.pristine"

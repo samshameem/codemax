@@ -25,6 +25,7 @@ export class ModelFormComponent implements OnInit, OnDestroy
     picname: any;
     pic_1: any;
     pic_2: any;
+    loading: boolean;
 
     // Private
     private _unsubscribeAll: Subject<any>;
@@ -148,7 +149,8 @@ export class ModelFormComponent implements OnInit, OnDestroy
      */
     addModel(): void
     {
-        const data = this.modelForm.getRawValue();
+        this.loading = true;
+        // const data = this.modelForm.getRawValue();
         const formData = new FormData();
         formData.append('manufacturer_id', this.modelForm.get('manufacturer_id').value);
         formData.append('model_name', this.modelForm.get('model_name').value);
@@ -171,9 +173,11 @@ export class ModelFormComponent implements OnInit, OnDestroy
                     duration        : 2000
                 });
 
+                this.loading = false;
                 // this._router.navigate(['/models']);
             },
             err => {
+                this.loading = false;
                 this._matSnackBar.open(err.message, 'ok', {
                     verticalPosition: 'top',
                     duration: 2000
